@@ -1,0 +1,21 @@
+[
+	{
+		"tabs": {
+			"shared": {
+				"base": "ut-tab-bar-item",
+				"delta": "selected"
+			},
+			"unique": {
+				"homeTab": "icon-home",
+				"transfersTab": "icon-transfer",
+				"squadTab": "icon-squad",
+				"storeTab": "icon-store",
+				"clubTab": "icon-club",
+				"sbcTab": "icon-sbc",
+				"stadiumTab": "icon-stadium",
+				"leaderboardsTab": "icon-leaderboards",
+				"settingsTab": "icon-settings"
+			}
+		}
+	}
+]
