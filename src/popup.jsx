@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 import { injectContentScript } from "./handlers";
 import { simulateClick } from "./utils";
-import { main } from "./main";
+import { main } from "./bot/main";
 
 const Popup = () => {
   return (
