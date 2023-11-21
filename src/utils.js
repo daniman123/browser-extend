@@ -13,19 +13,26 @@ export const getSelector = (
 	selectors,
 	selectorPrefix,
 	selectorType,
-	uniqueSelector
+	uniqueSelector,
+	seperator = ".",
+	baseKey = "base"
 ) => {
-	const base = selectors[0][selectorType]["shared"]["base"];
+	const base = selectors[0][selectorType]["shared"][baseKey];
 	const unique = selectors[0][selectorType]["unique"][uniqueSelector];
 
 	const selectorComponents = [base, unique];
 
-	const selector = selectorComponents.join(".");
+	const selector = selectorComponents.join(seperator);
 
 	return selectorPrefix + selector;
 };
 
-export const simulateClick = (selectorPrefix, selectorType, uniqueSelector) => {
+export const simulateClick = (
+	selectorPrefix,
+	selectorType,
+	uniqueSelector,
+	seperator="."
+) => {
 	chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
 		chrome.tabs.sendMessage(tabs[0].id, {
 			action: "simulateClick",
@@ -33,7 +40,8 @@ export const simulateClick = (selectorPrefix, selectorType, uniqueSelector) => {
 				selectors,
 				selectorPrefix,
 				selectorType,
-				uniqueSelector
+				uniqueSelector,
+				seperator
 			)}`,
 		});
 	});

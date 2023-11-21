@@ -8,9 +8,10 @@ const getRandomDelay = (min, max) =>
 const simulateHumanClick = async (
 	selectorPrefix,
 	selectorType,
-	uniqueSelector
+	uniqueSelector,
+	seperator = "."
 ) => {
-	simulateClick(selectorPrefix, selectorType, uniqueSelector);
+	simulateClick(selectorPrefix, selectorType, uniqueSelector, seperator);
 	const totalDelay =
 		getRandomDelay(500, 1000) +
 		getRandomDelay(500, 1000) +
@@ -19,7 +20,11 @@ const simulateHumanClick = async (
 };
 
 export async function main() {
+	// initial command - open transfersTab
 	await simulateHumanClick(".", "tabs", "transfersTab");
-	await simulateHumanClick(".", "tabs", "homeTab");
-	await simulateHumanClick(".", "tabs", "storeTab");
+
+	// transfermarket commands
+	await simulateHumanClick(".", "transfersTabTiles", "transferMarket");
+
+	await simulateHumanClick(".", "searchFilters", "rarityDropdown");
 }
