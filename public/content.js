@@ -1,5 +1,5 @@
 function simulateClickOnElement(selector) {
-	const element = document.querySelector(selector);
+	element = document.querySelector(selector);
 
 	if (element) {
 		["mouseover", "mousedown", "mouseup", "click"].forEach((eventType) => {
@@ -16,7 +16,7 @@ function simulateClickOnElement(selector) {
 	}
 }
 
-export const verifyClick = (selector, delta) => {
+const verifyClick = (selector, delta) => {
 	const isTransferTabOpen = document.querySelector([selector, delta].join("."));
 	if (!isTransferTabOpen) {
 		simulateClickOnElement(selector);
@@ -45,5 +45,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 		);
 
 		// select rarity
+		document.querySelector("li.with-icon:nth-child(2)").click();
+
+		// simulateClickOnElement("li.with-icon:nth-child(2)");
 	}
 });
