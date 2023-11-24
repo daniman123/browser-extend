@@ -37,6 +37,15 @@
 			"unique": {
 				"rarityDropdown": "has-image:nth-child(3) > div > div"
 			}
+		},
+		"rarityDropdownElements": {
+			"shared": {
+				"base": "li",
+				"delta": "selected"
+			},
+			"unique": {
+				"commonRarity": "with-icon:nth-child(2)"
+			}
 		}
 	}
 ]
