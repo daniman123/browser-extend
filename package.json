@@ -4,8 +4,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"build": "webpack --config webpack.prod.js",
-		"dev": "webpack --watch --config webpack.dev.js"
+		"build": "webpack --config config/webpack.prod.js",
+		"dev": "webpack --watch --config config/webpack.dev.js"
 	},
 	"author": "",
 	"license": "ISC",

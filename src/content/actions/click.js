@@ -1,9 +1,7 @@
+import { delay, getRandomDelay } from "./delay";
+
 export function simulateClickOnElement(selector) {
 	const element = document.querySelector(selector);
-	console.log(
-		"🚀 ~ file: contentUtils.js:3 ~ simulateClickOnElement ~ element:",
-		element
-	);
 
 	if (element) {
 		["mouseover", "mousedown", "mouseup", "click"].forEach((eventType) => {
@@ -20,11 +18,6 @@ export function simulateClickOnElement(selector) {
 	}
 }
 
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-const getRandomDelay = (min, max) =>
-	Math.floor(Math.random() * (max - min + 1)) + min;
-
 export async function simulateHumanClick(selector) {
 	simulateClickOnElement(selector);
 	const totalDelay =
@@ -34,13 +27,9 @@ export async function simulateHumanClick(selector) {
 	await delay(totalDelay);
 }
 
-export const verifyClick = (selector, delta) => {
+export const verifyClick = async (selector, delta) => {
 	const isTransferTabOpen = document.querySelector([selector, delta].join("."));
 	if (!isTransferTabOpen) {
-		simulateClickOnElement(selector);
+		await simulateHumanClick(selector);
 	}
-};
-
-export const test = () => {
-	console.log("first test export");
 };
