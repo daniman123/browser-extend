@@ -19,12 +19,12 @@ export function simulateClickOnElement(selector) {
 }
 
 export async function simulateHumanClick(selector) {
-	simulateClickOnElement(selector);
 	const totalDelay =
 		getRandomDelay(500, 1000) +
 		getRandomDelay(500, 1000) +
 		getRandomDelay(500, 2000);
 	await delay(totalDelay);
+	simulateClickOnElement(selector);
 }
 
 export const verifyClick = async (selector, delta) => {

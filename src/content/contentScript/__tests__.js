@@ -1,9 +1,6 @@
-import { getSelector } from "../selectors/utils";
+import { simulateHumanTyping } from "../actions/typing";
 
 export const test = () => {
-	const selector = getSelector(".", "tabs", "transfersTab");
-	console.log(
-		"🚀 ~ file: content.js:8 ~ chrome.runtime.onMessage.addListener ~ selector:",
-		selector
-	);
+	const inputElement = document.querySelector("#APjFqb");
+	simulateHumanTyping(inputElement, "Hello, World!");
 };

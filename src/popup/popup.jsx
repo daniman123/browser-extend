@@ -9,7 +9,24 @@ const Popup = () => {
 			<h1>Popup</h1>
 			<p>im feeling like rap god imbegingnig to fell</p>
 			<button onClick={injectContentScript}>INject!</button>
-			<button onClick={main}>Run Bot!</button>
+			<button
+				onClick={() =>
+					main({
+						test: true,
+					})
+				}
+			>
+				TEST!
+			</button>
+			<button
+				onClick={() =>
+					main({
+						bot: "startBot",
+					})
+				}
+			>
+				Run Bot!
+			</button>
 		</>
 	);
 };

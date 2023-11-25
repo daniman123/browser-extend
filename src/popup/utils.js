@@ -7,10 +7,8 @@ export const executeScriptOnActiveTab = (tabId, scriptDetails, logMessage) => {
 		.then(() => console.log(logMessage));
 };
 
-export const main = () => {
+export const main = (msg) => {
 	chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-		chrome.tabs.sendMessage(tabs[0].id, {
-			bot: "startBot",
-		});
+		chrome.tabs.sendMessage(tabs[0].id, msg);
 	});
 };
