@@ -1,5 +1,6 @@
 ```
 browser-extend
+├─ .gitignore
 ├─ config
 │  ├─ webpack.config.js
 │  ├─ webpack.dev.js
@@ -8,6 +9,7 @@ browser-extend
 ├─ package.json
 ├─ public
 │  └─ manifest.json
+├─ README.md
 └─ src
    ├─ content
    │  ├─ actions
