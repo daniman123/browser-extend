@@ -1,39 +1,39 @@
-
 ```
 browser-extend
-├─ dist
-│  ├─ background.js
-│  ├─ content.js
-│  ├─ content.js.LICENSE.txt
-│  ├─ manifest.json
-│  ├─ popup.html
-│  ├─ popup.js
-│  └─ popup.js.LICENSE.txt
+├─ config
+│  ├─ webpack.config.js
+│  ├─ webpack.dev.js
+│  └─ webpack.prod.js
 ├─ package-lock.json
 ├─ package.json
 ├─ public
 │  └─ manifest.json
-├─ src
-│  ├─ contentBot
-│  │  ├─ botRuntime
-│  │  │  ├─ mainRuntime
-│  │  │  └─ setup
-│  │  │     └─ setup.js
-│  │  ├─ content.js
-│  │  ├─ contentUtils.js
-│  │  └─ selectors
-│  │     ├─ eaWebApp.html
-│  │     ├─ rarityDropdown.html
-│  │     ├─ searchTransferMarket.html
-│  │     ├─ selectors.json
-│  │     ├─ transfersTab.html
-│  │     └─ utils.js
-│  ├─ handlers.js
-│  ├─ popup.html
-│  ├─ popup.jsx
-│  └─ utils.js
-├─ webpack.config.js
-├─ webpack.dev.js
-└─ webpack.prod.js
+└─ src
+   ├─ content
+   │  ├─ actions
+   │  │  ├─ click.js
+   │  │  ├─ delay.js
+   │  │  └─ typing.js
+   │  ├─ contentScript
+   │  │  ├─ content.js
+   │  │  └─ __tests__.js
+   │  ├─ selectors
+   │  │  ├─ pages
+   │  │  │  ├─ eaWebApp.html
+   │  │  │  ├─ rarityDropdown.html
+   │  │  │  ├─ searchTransferMarket.html
+   │  │  │  └─ transfersTab.html
+   │  │  ├─ selectors.json
+   │  │  └─ utils.js
+   │  └─ snipingBot
+   │     ├─ index.js
+   │     ├─ mainRuntime
+   │     └─ setup
+   │        └─ setup.js
+   └─ popup
+      ├─ handlers.js
+      ├─ popup.html
+      ├─ popup.jsx
+      └─ utils.js
 
 ```
