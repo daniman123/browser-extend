@@ -1,5 +1,5 @@
 import { snipingBotSetup } from "./setup/setup";
 
-export const snipingBot = () => {
-	snipingBotSetup();
+export const snipingBot = async (rarity) => {
+	await snipingBotSetup(rarity);
 };

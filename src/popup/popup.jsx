@@ -1,33 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import { render } from "react-dom";
-import { injectContentScript } from "./handlers";
-import { main } from "./utils";
+import RuntimeControls from "./components/RuntimeControls.jsx";
+import FiltersPanel from "./components/FiltersPanel.jsx";
+import rarityData from "./data/rarities.json";
+
+const rarities = [
+	"Any",
+	"Common",
+	"Rare",
+	"Centurions",
+	"Centurions ICON",
+	"CONMEBOL Libertadores",
+	"CONMEBOL Libertadores MOTM",
+	"CONMEBOL Sudamericana",
+	"CONMEBOL Sudamericana MOTM",
+	"Domestic Man of the Match",
+	"FC Pro Live",
+	"Icon",
+	"Nike",
+	"Team of the Week",
+	"Trailblazers",
+	"Triple Threat",
+	"Triple Threat Heroes",
+	"UCL Road to the Knockouts",
+	"UECL Road to the Knockouts",
+	"UEFA Heroes (Mens)",
+	"UEFA Heroes (Womens)",
+	"UEL Road to the Knockouts",
+	"UT Heroes",
+	"UWCL Road to the Knockouts",
+];
 
 const Popup = () => {
+	const [rarity, setRarity] = useState("");
 	return (
-		<>
-			<h1>Popup</h1>
-			<p>im feeling like rap god imbegingnig to fell</p>
-			<button onClick={injectContentScript}>INject!</button>
-			<button
-				onClick={() =>
-					main({
-						test: true,
-					})
-				}
-			>
-				TEST!
-			</button>
-			<button
-				onClick={() =>
-					main({
-						bot: "startBot",
-					})
-				}
-			>
-				Run Bot!
-			</button>
-		</>
+		<main>
+			<h1>Pengu</h1>
+			current rarity: {rarity}
+			<section>
+				<FiltersPanel
+					defaultOptionLabel="Rarity"
+					setRarity={setRarity}
+					jsonData={rarities}
+					columnName=""
+				/>
+				<RuntimeControls rarity={rarity} />
+			</section>
+		</main>
 	);
 };
 

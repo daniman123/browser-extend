@@ -1,4 +1,5 @@
 import { simulateHumanClick, verifyClick } from "../../actions/click";
+import { simulateHumanTyping } from "../../actions/typing";
 import { getSelector } from "../../selectors/utils";
 
 export const openTransfersTab = async () => {
@@ -26,11 +27,27 @@ export const setRarity = async (rarity) => {
 	await simulateHumanClick(commonRarity);
 };
 
-export const snipingBotSetup = async () => {
+export const setPrice = async () => {
+	const selector = getSelector("", "priceFilters", "maxBid");
+	await simulateHumanClick(selector);
+	const maxBidPriceInputField = document.querySelector(selector);
+	simulateHumanTyping(maxBidPriceInputField, "20000");
+
+	const searchMarketSelector = getSelector(
+		"",
+		"transferMarketButtons",
+		"search"
+	);
+	await simulateHumanClick(searchMarketSelector);
+};
+
+export const snipingBotSetup = async (rarity) => {
 	// click transfers tab
 	await openTransfersTab();
 	// open transfer market
 	await setTransfersTile();
 	// select common rarity
-	await setRarity("commonRarity");
+	await setRarity(rarity);
+	// set prices
+	await setPrice();
 };

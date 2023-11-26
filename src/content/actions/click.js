@@ -2,6 +2,10 @@ import { delay, getRandomDelay } from "./delay";
 
 export function simulateClickOnElement(selector) {
 	const element = document.querySelector(selector);
+	console.log(
+		"🚀 ~ file: click.js:5 ~ simulateClickOnElement ~ element:",
+		element
+	);
 
 	if (element) {
 		["mouseover", "mousedown", "mouseup", "click"].forEach((eventType) => {
