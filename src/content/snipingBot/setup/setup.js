@@ -1,5 +1,5 @@
 import { simulateHumanClick, verifyClick } from "../../actions/click";
-import { simulateHumanTyping } from "../../actions/typing";
+import { simulateHumanTyping } from "../../actions/typing/typing";
 import { getSelector } from "../../selectors/utils";
 
 export const openTransfersTab = async () => {
