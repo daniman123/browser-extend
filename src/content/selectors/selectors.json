@@ -1,95 +1,74 @@
-[
-	{
-		"tabs": {
-			"shared": {
-				"base": "ut-tab-bar-item",
-				"delta": "selected"
-			},
-			"unique": {
-				"homeTab": "icon-home",
-				"transfersTab": "icon-transfer",
-				"squadTab": "icon-squad",
-				"storeTab": "icon-store",
-				"clubTab": "icon-club",
-				"sbcTab": "icon-sbc",
-				"stadiumTab": "icon-stadium",
-				"leaderboardsTab": "icon-leaderboards",
-				"settingsTab": "icon-settings"
-			}
-		},
-		"transfersTabTiles": {
-			"shared": {
-				"base": "tile",
-				"altBase": "tile col-1-3-md col-1-2",
-				"delta": "selected"
-			},
-			"unique": {
-				"transferMarket": "ut-tile-transfer-market",
-				"transferList": "ut-tile-transfer-list",
-				"transferTargets": "ut-tile-transfer-targets"
-			}
-		},
-		"searchFilters": {
-			"shared": {
-				"base": "inline-list-select.ut-search-filter-control.has-default",
-				"delta": "is-open"
-			},
-			"unique": {
-				"rarityDropdown": "has-image:nth-child(3) > div > div"
-			}
-		},
-		"rarityDropdownElements": {
-			"shared": {
-				"base": "li",
-				"delta": "selected"
-			},
-			"unique": {
-				"Any": "with-icon:nth-child(1)",
-				"Common": "with-icon:nth-child(2)",
-				"Rare": "with-icon:nth-child(3)",
-				"Centurions": "with-icon:nth-child(4)",
-				"Centurions ICON": "with-icon:nth-child(5)",
-				"CONMEBOL Libertadores": "with-icon:nth-child(6)",
-				"CONMEBOL Libertadores MOTM": "with-icon:nth-child(7)",
-				"CONMEBOL Sudamericana": "with-icon:nth-child(8)",
-				"CONMEBOL Sudamericana MOTM": "with-icon:nth-child(9)",
-				"Domestic Man of the Match": "with-icon:nth-child(10)",
-				"FC Pro Live": "with-icon:nth-child(11)",
-				"Icon": "with-icon:nth-child(12)",
-				"Nike": "with-icon:nth-child(13)",
-				"Team of the Week": "with-icon:nth-child(14)",
-				"Trailblazers": "with-icon:nth-child(15)",
-				"Triple Threat": "with-icon:nth-child(16)",
-				"Triple Threat Heroes": "with-icon:nth-child(17)",
-				"UCL Road to the Knockouts": "with-icon:nth-child(18)",
-				"UECL Road to the Knockouts": "with-icon:nth-child(19)",
-				"UEFA Heroes (Mens)": "with-icon:nth-child(20)",
-				"UEFA Heroes (Womens)": "with-icon:nth-child(21)",
-				"UEL Road to the Knockouts": "with-icon:nth-child(22)",
-				"UT Heroes": "with-icon:nth-child(23)",
-				"UWCL Road to the Knockouts": "with-icon:nth-child(24)"
-			}
-		},
-		"priceFilters": {
-			"shared": {
-				"base": "div",
-				"delta": "selected"
-			},
-			"unique": {
-				"minBid": "search-prices > div:nth-child(2) > div > input",
-				"maxBid": "search-prices > div:nth-child(3) > div > input",
-				"minBin": "search-prices > div:nth-child(5) > div > input",
-				"maxBin": "search-prices > div:nth-child(6) > div > input"
-			}
-		},
-		"transferMarketButtons": {
-			"shared": {
-				"base": "div"
-			},
-			"unique": {
-				"reset": "button-container > button:nth-child(1)",
-				"search": "button-container > button:nth-child(2)"
-			}
+{
+	"tabs": {
+		"delta": "selected",
+		"unique": {
+			"homeTab": ".ut-tab-bar-item.icon-home",
+			"transfersTab": ".ut-tab-bar-item.icon-transfer",
+			"squadTab": ".ut-tab-bar-item.icon-squad",
+			"storeTab": ".ut-tab-bar-item.icon-store",
+			"clubTab": ".ut-tab-bar-item.icon-club",
+			"sbcTab": ".ut-tab-bar-item.icon-sbc",
+			"stadiumTab": ".ut-tab-bar-item.icon-stadium",
+			"leaderboardsTab": ".ut-tab-bar-item.icon-leaderboards",
+			"settingsTab": ".ut-tab-bar-item.icon-settings"
+		}
+	},
+	"transfersTabTiles": {
+		"delta": "selected",
+		"unique": {
+			"transferMarket": ".tile.ut-tile-transfer-market",
+			"transferList": ".tile.col-1-3-md.col-1-2 ut-tile-transfer-list",
+			"transferTargets": ".tile.col-1-3-md.col-1-2.ut-tile-transfer-targets"
+		}
+	},
+	"searchFilters": {
+		"delta": "is-open",
+		"unique": {
+			"rarityDropdown": ".inline-list-select.ut-search-filter-control.has-default.has-image:nth-child(3) > div > div"
+		}
+	},
+	"rarityDropdownElements": {
+		"delta": "selected",
+		"unique": {
+			"Any": "li.with-icon:nth-child(1)",
+			"Common": "li.with-icon:nth-child(2)",
+			"Rare": "li.with-icon:nth-child(3)",
+			"Centurions": "li.with-icon:nth-child(4)",
+			"Centurions ICON": "li.with-icon:nth-child(5)",
+			"CONMEBOL Libertadores": "li.with-icon:nth-child(6)",
+			"CONMEBOL Libertadores MOTM": "li.with-icon:nth-child(7)",
+			"CONMEBOL Sudamericana": "li.with-icon:nth-child(8)",
+			"CONMEBOL Sudamericana MOTM": "li.with-icon:nth-child(9)",
+			"Domestic Man of the Match": "li.with-icon:nth-child(10)",
+			"FC Pro Live": "li.with-icon:nth-child(11)",
+			"Icon": "li.with-icon:nth-child(12)",
+			"Nike": "li.with-icon:nth-child(13)",
+			"Team of the Week": "li.with-icon:nth-child(14)",
+			"Trailblazers": "li.with-icon:nth-child(15)",
+			"Triple Threat": "li.with-icon:nth-child(16)",
+			"Triple Threat Heroes": "li.with-icon:nth-child(17)",
+			"UCL Road to the Knockouts": "li.with-icon:nth-child(18)",
+			"UECL Road to the Knockouts": "li.with-icon:nth-child(19)",
+			"UEFA Heroes (Mens)": "li.with-icon:nth-child(20)",
+			"UEFA Heroes (Womens)": "li.with-icon:nth-child(21)",
+			"UEL Road to the Knockouts": "li.with-icon:nth-child(22)",
+			"UT Heroes": "li.with-icon:nth-child(23)",
+			"UWCL Road to the Knockouts": "li.with-icon:nth-child(24)"
+		}
+	},
+	"priceFilters": {
+		"delta": "selected",
+		"unique": {
+			"minBid": "div.search-prices > div:nth-child(2) > div > input",
+			"maxBid": "div.search-prices > div:nth-child(3) > div > input",
+			"minBin": "div.search-prices > div:nth-child(5) > div > input",
+			"maxBin": "div.search-prices > div:nth-child(6) > div > input"
+		}
+	},
+	"transferMarketButtons": {
+		"unique": {
+			"reset": "div.button-container > button:nth-child(1)",
+			"search": "div.button-container > button.btn-standard.call-to-action:nth-child(2)"
 		}
 	}
-]
+}

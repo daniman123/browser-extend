@@ -33,6 +33,7 @@ const rarities = [
 
 const Popup = () => {
 	const [rarity, setRarity] = useState("");
+	const [maxBidPrice, setMaxBidPrice] = useState(0);
 	return (
 		<main>
 			<h1>Pengu</h1>
@@ -44,7 +45,15 @@ const Popup = () => {
 					jsonData={rarities}
 					columnName=""
 				/>
-				<RuntimeControls rarity={rarity} />
+				<h4>Max Bid</h4>
+				<input
+					type="tel"
+					onChange={(e) => {
+						setMaxBidPrice(e.target.value);
+					}}
+				/>
+
+				<RuntimeControls rarity={rarity} maxBidPrice={maxBidPrice} />
 			</section>
 		</main>
 	);
