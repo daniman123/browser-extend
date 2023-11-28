@@ -10,7 +10,7 @@ const RuntimeControls = ({ rarity, maxBidPrices }) => {
 					main({
 						test: true,
 						rarity: rarity,
-						maxBidPrice: maxBidPrices,
+						prices: maxBidPrices,
 					})
 				}
 			>
@@ -21,7 +21,7 @@ const RuntimeControls = ({ rarity, maxBidPrices }) => {
 					main({
 						bot: "startBot",
 						rarity: rarity,
-						maxBidPrice: maxBidPrices,
+						prices: maxBidPrices,
 					})
 				}
 			>

@@ -25,19 +25,25 @@ export const setRarity = async (rarity) => {
 	await simulateHumanClick(commonRarity);
 };
 
-export const setPrice = async (maxBidPrice) => {
-	const priceFilters = selectors.priceFilters;
-	const maxBidField = priceFilters.unique.maxBid;
-	await simulateHumanClick(maxBidField);
+export const populatePriceFields = async (prices) => {
+	const priceFilters = selectors.priceFilters.unique;
 
-	simulateHumanTyping(maxBidField, maxBidPrice);
+	const priceSelectors = Object.values(priceFilters);
+	for (let i = 0; i < priceSelectors.length; i++) {
+		await simulateHumanClick(priceSelectors[i]);
+		simulateHumanTyping(priceSelectors[i], prices[i]);
+	}
+};
+
+export const setPrices = async (prices) => {
+	await populatePriceFields(prices);
 
 	const transferMarketButtons = selectors.transferMarketButtons;
 	const searchButton = transferMarketButtons.unique.search;
 	await simulateHumanClick(searchButton);
 };
 
-export const snipingBotSetup = async (rarity, maxBidPrice) => {
+export const snipingBotSetup = async (rarity, prices) => {
 	// click transfers tab
 	await openTransfersTab();
 	// open transfer market
@@ -45,5 +51,5 @@ export const snipingBotSetup = async (rarity, maxBidPrice) => {
 	// select common rarity
 	await setRarity(rarity);
 	// set prices
-	await setPrice(maxBidPrice);
+	await setPrices(prices);
 };
