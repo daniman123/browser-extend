@@ -1,32 +1,33 @@
 import { simulateHumanClick, verifyClick } from "../../actions/click";
 import { simulateHumanTyping } from "../../actions/typing/typing";
-import selectors from "../../selectors/selectors.json";
+import {
+	getRarityDropdownElementSelector,
+	getSelectors,
+	getTabSelector,
+	getTransferMarketButtonSelector,
+	getTransfersTabTileSelector,
+} from "../../selectors/selectorManager";
 
 export const openTransfersTab = async () => {
-	const tabs = selectors.tabs;
-	const transfersTab = tabs.unique.transfersTab;
-	await verifyClick(transfersTab, tabs.delta);
+	const transfersTab = getTabSelector("transfersTab");
+	await verifyClick(transfersTab, "selected");
 };
 
 export const setTransfersTile = async () => {
-	const transfersTiles = selectors.transfersTabTiles;
-	const transferMarketTile = transfersTiles.unique.transferMarket;
+	const transferMarketTile = getTransfersTabTileSelector("transferMarket");
 	await simulateHumanClick(transferMarketTile);
 };
 
 export const setRarity = async (rarity) => {
-	const searchFilters = selectors.searchFilters;
-	const searchFilterDropdown = searchFilters.unique.rarityDropdown;
-
-	const rarityDropdownElements = selectors.rarityDropdownElements;
-	const commonRarity = rarityDropdownElements.unique[rarity];
+	const searchFilterDropdown = getSearchFilterSelector("rarityDropdown");
+	const commonRarity = getRarityDropdownElementSelector(rarity);
 
 	await simulateHumanClick(searchFilterDropdown);
 	await simulateHumanClick(commonRarity);
 };
 
 export const populatePriceFields = async (prices) => {
-	const priceFilters = selectors.priceFilters.unique;
+	const priceFilters = getSelectors("priceFilters");
 
 	const priceSelectors = Object.values(priceFilters);
 	for (let i = 0; i < priceSelectors.length; i++) {
@@ -35,11 +36,8 @@ export const populatePriceFields = async (prices) => {
 	}
 };
 
-export const setPrices = async (prices) => {
-	await populatePriceFields(prices);
-
-	const transferMarketButtons = selectors.transferMarketButtons;
-	const searchButton = transferMarketButtons.unique.search;
+export const clickSearch = async () => {
+	const searchButton = getTransferMarketButtonSelector("search");
 	await simulateHumanClick(searchButton);
 };
 
@@ -51,5 +49,7 @@ export const snipingBotSetup = async (rarity, prices) => {
 	// select common rarity
 	await setRarity(rarity);
 	// set prices
-	await setPrices(prices);
+	await populatePriceFields(prices);
+	// search market
+	await clickSearch();
 };
