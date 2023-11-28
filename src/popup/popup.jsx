@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { render } from "react-dom";
 import RuntimeControls from "./components/RuntimeControls.jsx";
 import FiltersPanel from "./components/FiltersPanel.jsx";
-import rarityData from "./data/rarities.json";
+import PriceInputs from "./components/PriceInputs.jsx";
+// import rarityData from "./data/rarities.json";
 
 const rarities = [
 	"Any",
@@ -33,7 +34,7 @@ const rarities = [
 
 const Popup = () => {
 	const [rarity, setRarity] = useState("");
-	const [maxBidPrice, setMaxBidPrice] = useState(0);
+	const [maxBidPrices, setMaxBidPrices] = useState([0, 0, 0, 0]);
 	return (
 		<main>
 			<h1>Pengu</h1>
@@ -46,14 +47,12 @@ const Popup = () => {
 					columnName=""
 				/>
 				<h4>Max Bid</h4>
-				<input
-					type="tel"
-					onChange={(e) => {
-						setMaxBidPrice(e.target.value);
-					}}
+				<PriceInputs
+					setMaxBidPrices={setMaxBidPrices}
+					maxBidPrices={maxBidPrices}
 				/>
 
-				<RuntimeControls rarity={rarity} maxBidPrice={maxBidPrice} />
+				<RuntimeControls rarity={rarity} maxBidPrices={maxBidPrices} />
 			</section>
 		</main>
 	);
