@@ -1,6 +1,6 @@
 import React from "react";
-import { injectContentScript } from "../handlers";
-import { main } from "../utils";
+import { injectContentScript } from "../../handlers";
+import { main } from "../../utils";
 const RuntimeControls = ({ rarity, maxBidPrices }) => {
 	return (
 		<>
