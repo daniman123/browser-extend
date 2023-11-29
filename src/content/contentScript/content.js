@@ -3,9 +3,9 @@ import { snipingBot } from "../snipingBot/index";
 
 chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
 	if (request.test) {
+		console.log("first test export");
 		console.log(request.rarity);
 		console.log(request.prices);
-		console.log("first test export");
 		test();
 		console.log("test complete");
 	}

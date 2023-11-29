@@ -4,7 +4,7 @@
 
 import {
 	getTabSelector,
-	getDropdownSelector,
+	getRarityDropdownElementSelector,
 } from "../selectors/selectorManager";
 
 export const openTransfersTab = async () => {
@@ -13,7 +13,7 @@ export const openTransfersTab = async () => {
 	// 	"🚀 ~ file: __tests__.js:12 ~ openTransfersTab ~ transfersTab:",
 	// 	transfersTab
 	// );
-	const filters = getDropdownSelector("rarityDropdown");
+	const filters = getRarityDropdownElementSelector("rarityDropdown");
 	console.log(
 		"🚀 ~ file: __tests__.js:18 ~ openTransfersTab ~ filters:",
 		filters

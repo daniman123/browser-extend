@@ -37,7 +37,6 @@ export const getTransferMarketButtonSelector = (buttonName) => {
 export default {
 	getSelectors,
 	getTabSelector,
-	getButtonSelector,
 	getTransfersTabTileSelector,
 	getSearchFilterSelector,
 	getRarityDropdownElementSelector,
