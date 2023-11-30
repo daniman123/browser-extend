@@ -15,6 +15,8 @@ const setInputTitle = (index: number) => {
 			return "Min Bin";
 		case 3:
 			return "Max Bin";
+		default:
+			return "";
 	}
 };
 const PriceInputs = ({ prices, setPrices }: IPriceInputs) => {

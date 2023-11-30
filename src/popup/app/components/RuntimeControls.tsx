@@ -1,7 +1,13 @@
 import React from "react";
 import { injectContentScript } from "../../handlers";
 import { main } from "../../utils";
-const RuntimeControls = ({ rarity, maxBidPrices }) => {
+
+export interface IRuntimeControls {
+	rarity: string;
+	prices: number[];
+}
+
+const RuntimeControls = ({ rarity, prices }: IRuntimeControls) => {
 	return (
 		<>
 			<button onClick={injectContentScript}>INject!</button>
@@ -10,7 +16,7 @@ const RuntimeControls = ({ rarity, maxBidPrices }) => {
 					main({
 						test: true,
 						rarity: rarity,
-						prices: maxBidPrices,
+						prices: prices,
 					})
 				}
 			>
@@ -21,7 +27,7 @@ const RuntimeControls = ({ rarity, maxBidPrices }) => {
 					main({
 						bot: "startBot",
 						rarity: rarity,
-						prices: maxBidPrices,
+						prices: prices,
 					})
 				}
 			>
