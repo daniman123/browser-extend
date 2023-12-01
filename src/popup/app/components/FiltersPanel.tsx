@@ -16,6 +16,7 @@ const FiltersPanel = ({
 			<select
 				name=""
 				id=""
+				className="w-full"
 				defaultValue={defaultOptionLabel}
 				onChange={(e) => {
 					setRarity(e.target.value);

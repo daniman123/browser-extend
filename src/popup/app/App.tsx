@@ -10,16 +10,18 @@ const App = () => {
 	const [rarity, setRarity] = useState("");
 	const [prices, setPrices] = useState([0, 0, 0, 0]);
 	return (
-		<main className="h-96 w-96 border border-cyan-700 ">
-			<section className="h-full w-full">
-				<h1 className="flex items-center justify-center font-bold text-4xl">
+		<main className="h-96 w-96 border ">
+			<section className="h-full w-full grid grid-flow-row auto-rows-auto">
+				
+				<h1 className="flex items-center justify-center font-bold text-3xl">
 					Pengu
 				</h1>
+
 				{!toggleBot ? (
 					<ToggleBot setToggleBot={setToggleBot} />
 				) : (
 					<section className="w-full grid grid-flow-col auto-cols-fr">
-						<section className="">
+						<section className="w-full p-2">
 							<FiltersPanel
 								defaultOptionLabel="Rarity"
 								setRarity={setRarity}
