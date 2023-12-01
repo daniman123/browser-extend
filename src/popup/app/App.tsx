@@ -6,7 +6,7 @@ import RuntimeControls from "./components/RuntimeControls";
 import ToggleBot from "./components/ToggleBot";
 
 const App = () => {
-	const [toggleBot, setToggleBot] = useState(false);
+	const [toggleBot, setToggleBot] = useState(true);
 	const [rarity, setRarity] = useState("");
 	const [prices, setPrices] = useState([0, 0, 0, 0]);
 	return (
@@ -18,8 +18,8 @@ const App = () => {
 				{!toggleBot ? (
 					<ToggleBot setToggleBot={setToggleBot} />
 				) : (
-					<section className="w-full flex items-center justify-center">
-						<section className="grid">
+					<section className="w-full grid grid-flow-col auto-cols-fr">
+						<section className="">
 							<FiltersPanel
 								defaultOptionLabel="Rarity"
 								setRarity={setRarity}
@@ -28,6 +28,7 @@ const App = () => {
 							<PriceInputs setPrices={setPrices} prices={prices} />
 							<RuntimeControls rarity={rarity} prices={prices} />
 						</section>
+						<section>yo</section>
 					</section>
 				)}
 			</section>
