@@ -3,36 +3,34 @@ import PriceInputs from "./components/PriceInputs";
 import rarities from "../data/activeRarities.json";
 import FiltersPanel from "./components/FiltersPanel";
 import RuntimeControls from "./components/RuntimeControls";
-// import "../global.css";
+import ToggleBot from "./components/ToggleBot";
 
 const App = () => {
 	const [toggleBot, setToggleBot] = useState(false);
 	const [rarity, setRarity] = useState("");
 	const [prices, setPrices] = useState([0, 0, 0, 0]);
 	return (
-		<main className="">
-			<h1>Pengu</h1>
-			{!toggleBot ? (
-				<button
-					className="rounded-lg bg-red-500"
-					onClick={() => setToggleBot(true)}
-				>
-					Enable Bot
-				</button>
-			) : (
-				<>
-					<div>current rarity: {rarity}</div>
-					<section>
-						<FiltersPanel
-							defaultOptionLabel="Rarity"
-							setRarity={setRarity}
-							jsonData={rarities}
-						/>
-						<PriceInputs setPrices={setPrices} prices={prices} />
-						<RuntimeControls rarity={rarity} prices={prices} />
+		<main className="h-96 w-96 border border-cyan-700 ">
+			<section className="h-full w-full">
+				<h1 className="flex items-center justify-center font-bold text-4xl">
+					Pengu
+				</h1>
+				{!toggleBot ? (
+					<ToggleBot setToggleBot={setToggleBot} />
+				) : (
+					<section className="w-full flex items-center justify-center">
+						<section className="grid">
+							<FiltersPanel
+								defaultOptionLabel="Rarity"
+								setRarity={setRarity}
+								jsonData={rarities}
+							/>
+							<PriceInputs setPrices={setPrices} prices={prices} />
+							<RuntimeControls rarity={rarity} prices={prices} />
+						</section>
 					</section>
-				</>
-			)}
+				)}
+			</section>
 		</main>
 	);
 };
