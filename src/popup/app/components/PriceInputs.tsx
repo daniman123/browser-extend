@@ -24,8 +24,9 @@ const PriceInputs = ({ prices, setPrices }: IPriceInputs) => {
 		<>
 			{[0, 1, 2, 3].map((index) => (
 				<React.Fragment key={index}>
-					<h4>{setInputTitle(index)}</h4>
+					<h4 className="indent-1 font-semibold">{setInputTitle(index)}</h4>
 					<input
+					className="w-full outline-none indent-2"
 						type="tel"
 						value={prices[index] || ""}
 						onChange={(e) => {
