@@ -44,10 +44,12 @@ const MainContent = () => {
 
 			<section className="rounded bg-slate-200">
 				<button onClick={addElement}>Add Element</button>
-				<div>
+				<div className="grid grid-flow-row auto-rows-fr gap-2">
 					{elements.map((element, index) => (
 						<div
-							className={index === activeList ? "bg-green-500" : ""}
+							className={
+								index === activeList ? "bg-green-500" : "border border-red-500"
+							}
 							onClick={() => setActiveList(index)}
 						>
 							<p key={element.id}>{element.content}</p>

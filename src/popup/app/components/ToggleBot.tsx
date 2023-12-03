@@ -6,12 +6,11 @@ export interface IToggleBot {
 
 const ToggleBot = ({ setToggleBot }: IToggleBot) => {
 	return (
-		<button
-			className="rounded-lg bg-red-500"
-			onClick={() => setToggleBot(true)}
-		>
-			Enable Bot
-		</button>
+		<div className="flex items-center justify-center row-span-1">
+			<button className="" onClick={() => setToggleBot(true)}>
+				Enable Bot
+			</button>
+		</div>
 	);
 };
 
