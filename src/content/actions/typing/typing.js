@@ -1,46 +1,46 @@
 import {
-	calculateTypingDelay,
-	createBackspaceCharacter,
-	createDispatchTypingEvents,
-	createTypeCharacter,
-	filterNumericCharacters,
+  calculateTypingDelay,
+  createBackspaceCharacter,
+  createDispatchTypingEvents,
+  createTypeCharacter,
+  filterNumericCharacters,
 } from "./utils";
 
 export function simulateHumanTyping(selector, text) {
-	const element = document.querySelector(selector);
+  const element = document.querySelector(selector);
 
-	let currentIndex = { value: 0 };
-	let isBackspacing = { value: false };
-	const numericText = filterNumericCharacters(text);
+  let currentIndex = { value: 0 };
+  let isBackspacing = { value: false };
+  const numericText = filterNumericCharacters(text);
 
-	const typeCharacter = createTypeCharacter(element, numericText, currentIndex);
-	const backspaceCharacter = createBackspaceCharacter(
-		element,
-		numericText,
-		currentIndex,
-		isBackspacing
-	);
-	const dispatchTypingEvents = createDispatchTypingEvents(element);
+  const typeCharacter = createTypeCharacter(element, numericText, currentIndex);
+  const backspaceCharacter = createBackspaceCharacter(
+    element,
+    numericText,
+    currentIndex,
+    isBackspacing,
+  );
+  const dispatchTypingEvents = createDispatchTypingEvents(element);
 
-	const shouldBackspace = () => Math.random() < 0.03 && !isBackspacing.value;
+  const shouldBackspace = () => Math.random() < 0.03 && !isBackspacing.value;
 
-	const typeChar = () => {
-		if (currentIndex.value <= numericText.length) {
-			if (!isBackspacing.value) {
-				typeCharacter();
-			} else {
-				backspaceCharacter();
-			}
+  const typeChar = () => {
+    if (currentIndex.value <= numericText.length) {
+      if (!isBackspacing.value) {
+        typeCharacter();
+      } else {
+        backspaceCharacter();
+      }
 
-			dispatchTypingEvents();
+      dispatchTypingEvents();
 
-			if (shouldBackspace()) {
-				isBackspacing.value = true;
-			}
+      if (shouldBackspace()) {
+        isBackspacing.value = true;
+      }
 
-			setTimeout(typeChar, calculateTypingDelay(isBackspacing.value));
-		}
-	};
+      setTimeout(typeChar, calculateTypingDelay(isBackspacing.value));
+    }
+  };
 
-	typeChar();
+  typeChar();
 }
