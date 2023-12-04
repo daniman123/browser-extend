@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const webpack = require("webpack"); // Require webpack
 
 module.exports = {
   entry: {
@@ -41,6 +42,10 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [{ from: "public" }],
+    }),
+    new webpack.ProvidePlugin({
+      // Add ProvidePlugin to your plugins
+      React: "react", // React must be in scope when using JSX
     }),
   ],
   resolve: {

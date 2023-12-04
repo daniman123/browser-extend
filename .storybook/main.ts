@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-webpack5";
+const webpack = require('webpack'); // Import webpack
 
 const config: StorybookConfig = {
   stories: ["../src/popup/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -10,7 +11,6 @@ const config: StorybookConfig = {
     "@storybook/addon-styling-webpack",
     {
       name: "@storybook/addon-styling-webpack",
-
       options: {
         rules: [
           {
@@ -47,5 +47,15 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+  webpackFinal: async (config, { configType }) => {
+    // Use webpack's ProvidePlugin
+    config.plugins.push(
+      new webpack.ProvidePlugin({
+        React: 'react', // Automatically import React where needed
+      })
+    );
+    return config;
+  },
 };
+
 export default config;
