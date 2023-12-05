@@ -1,17 +1,12 @@
 import { useState } from "react";
-import MainContent from "./components/MainContent";
-import ToggleBotSection from "./components/ToggleBotSection";
+import { renderContent } from "./helpers";
 
 const App = () => {
-  const [toggleBot, setToggleBot] = useState(true);
+  const [toggleBot, setToggleBot] = useState(false);
 
   return (
     <main className="h-[700px] w-[700px]">
-      {!toggleBot ? (
-        <ToggleBotSection setToggleBot={setToggleBot} />
-      ) : (
-        <MainContent />
-      )}
+      {renderContent(toggleBot, setToggleBot)}
     </main>
   );
 };

@@ -1,5 +1,5 @@
-import filtersListJson from "../../../data/activeRarities.json";
 import { IRarityDropdown } from "../../types";
+import { DropdownOptions } from "./DropdownOptions";
 
 const RarityDropdown = ({
   defaultOptionLabel,
@@ -15,14 +15,7 @@ const RarityDropdown = ({
       defaultValue={defaultOptionLabel}
       onChange={updateElement}
     >
-      <option disabled value={defaultOptionLabel}>
-        {defaultOptionLabel}
-      </option>
-      {filtersListJson.map((value, index) => (
-        <option key={index} value={value}>
-          {value}
-        </option>
-      ))}
+      <DropdownOptions defaultOptionLabel={defaultOptionLabel} />
     </select>
   );
 };
