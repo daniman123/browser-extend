@@ -1,10 +1,5 @@
 import filtersListJson from "../../../data/activeRarities.json";
-
-export interface IRarityDropdown {
-  defaultOptionLabel: string;
-  updateElement: (e: any) => void;
-  isDisabled: boolean;
-}
+import { IRarityDropdown } from "../../types";
 
 const RarityDropdown = ({
   defaultOptionLabel,

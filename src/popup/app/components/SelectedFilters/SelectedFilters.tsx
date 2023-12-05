@@ -1,5 +1,4 @@
-import { useCallback } from "react";
-import { addElement } from "../../lib/utils";
+import useFilterControls from "../../lib/hooks/useFilterControls";
 import { ISelectedFilters } from "../../types";
 import FilterControls from "./FilterControls";
 import RenderSelectedFilters from "./RenderSelectedFilters";
@@ -10,10 +9,9 @@ const SelectedFilters = ({
   setActiveList,
   activeList,
 }: ISelectedFilters) => {
-  const clearAllFilters = useCallback(() => setElements([]), [setElements]);
-  const addFilter = useCallback(
-    () => addElement(elements, setElements),
-    [elements, setElements],
+  const { addFilter, clearAllFilters } = useFilterControls(
+    elements,
+    setElements,
   );
 
   return (

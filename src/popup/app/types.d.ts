@@ -36,3 +36,12 @@ export interface IRenderSelectedFilters {
   setElements: TsetElements;
   activeList: number;
 }
+export interface IToggleBotSection {
+  setToggleBot: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface IRarityDropdown {
+  defaultOptionLabel: string;
+  updateElement: (e: any) => void;
+  isDisabled: boolean;
+}
