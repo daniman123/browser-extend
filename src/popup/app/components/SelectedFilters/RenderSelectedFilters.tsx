@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { removeElement } from "../../lib/utils";
 import { IRenderSelectedFilters } from "../../types";
 import FilterItem from "./FilterItem";
-
+// TODO - Reduce compl.
 const RenderSelectedFilters = ({
   elements,
   activeList,

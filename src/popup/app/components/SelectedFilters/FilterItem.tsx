@@ -1,5 +1,5 @@
 import { IFilterItem } from "../../types";
-
+// TODO - Reduce compl.
 const FilterItem = ({
   element,
   isActive,
