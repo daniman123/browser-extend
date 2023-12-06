@@ -1,22 +1,55 @@
-import { IFilterItem } from "../../types";
-// TODO - Reduce compl.
-const FilterItem = ({
-  element,
-  isActive,
-  onSetActiveList,
-  onRemoveElement,
-}: IFilterItem) => (
-  <div
-    className={`border ${isActive ? "bg-green-500" : "border-slate-700"}`}
-    onClick={onSetActiveList}
-  >
-    <div className="flex">
-      <p key={element.id}>{element.content}</p>
-      <button className="text-red-700" onClick={onRemoveElement}>
+import { removeElement } from "../../lib/utils";
+import { IFilterItem, IFilterItemControls } from "../../types";
+
+export const FilterItemControls = ({
+  elements,
+  setElements,
+  index,
+}: IFilterItemControls) => {
+  return (
+    <>
+      <p>Filter {index + 1}</p>
+      <button
+        className="text-red-700"
+        onClick={() => removeElement(elements, setElements, index)}
+      >
         X
       </button>
-    </div>
-    <div>{element.additionalData}</div>
+    </>
+  );
+};
+
+const Item = (props: IFilterItemControls) => {
+  return (
+    <>
+      <div className="flex">
+        <FilterItemControls {...props} />
+      </div>
+      {props.element.additionalData}
+    </>
+  );
+};
+
+const FilterItem = ({
+  index,
+  activeList,
+  element,
+  setActiveList,
+  elements,
+  setElements,
+}: IFilterItem) => (
+  <div
+    className={`border ${
+      index === activeList ? "bg-green-500" : "border-slate-700"
+    }`}
+    onClick={() => setActiveList(index)}
+  >
+    <Item
+      element={element}
+      elements={elements}
+      setElements={setElements}
+      index={index}
+    />
   </div>
 );
 

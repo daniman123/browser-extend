@@ -12,10 +12,19 @@ export interface ISelectedFilters {
 }
 
 export interface IFilterItem {
+  index: number;
+  activeList: number;
   element: any;
-  isActive: boolean;
-  onSetActiveList: () => void;
-  onRemoveElement: () => void;
+  setActiveList: (value: React.SetStateAction<number>) => void;
+  elements: Telements;
+  setElements: TsetElements;
+}
+
+export interface IFilterItemControls {
+  element: any;
+  elements: Telements;
+  setElements: TsetElements;
+  index: number;
 }
 
 export interface IFilterButton {

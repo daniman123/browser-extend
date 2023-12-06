@@ -1,5 +1,4 @@
 import React from "react";
-import { removeElement } from "../../lib/utils";
 import { IRenderSelectedFilters } from "../../types";
 import FilterItem from "./FilterItem";
 
@@ -15,9 +14,11 @@ const RenderSelectedFilters = ({
         <MemoizedFilterItem
           key={element.id}
           element={element}
-          isActive={index === activeList}
-          onSetActiveList={() => setActiveList(index)}
-          onRemoveElement={() => removeElement(elements, setElements, index)}
+          index={index}
+          activeList={activeList}
+          setActiveList={setActiveList}
+          elements={elements}
+          setElements={setElements}
         />
       ))}
     </div>
