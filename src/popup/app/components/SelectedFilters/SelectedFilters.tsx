@@ -1,4 +1,3 @@
-import useFilterControls from "../../lib/hooks/useFilterControls";
 import { ISelectedFilters } from "../../types";
 import FilterControls from "./FilterControls";
 import RenderSelectedFilters from "./RenderSelectedFilters";
@@ -9,18 +8,9 @@ const SelectedFilters = ({
   setActiveList,
   activeList,
 }: ISelectedFilters) => {
-  const { addFilter, clearAllFilters } = useFilterControls(
-    elements,
-    setElements,
-  );
-
   return (
     <>
-      <FilterControls
-        addFilter={addFilter}
-        clearAllFilters={clearAllFilters}
-        disabled={!elements.length}
-      />
+      <FilterControls elements={elements} setElements={setElements} />
 
       <RenderSelectedFilters
         elements={elements}

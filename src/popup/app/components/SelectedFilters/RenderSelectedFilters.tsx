@@ -1,23 +1,14 @@
-import React, { useCallback } from 'react';
+import React from "react";
 import { removeElement } from "../../lib/utils";
 import { IRenderSelectedFilters } from "../../types";
 import FilterItem from "./FilterItem";
-// TODO - Reduce compl.
+
 const RenderSelectedFilters = ({
   elements,
   activeList,
   setActiveList,
   setElements,
 }: IRenderSelectedFilters) => {
-
-  const handleSetActiveList = useCallback((index: number) => {
-    setActiveList(index);
-  }, [setActiveList]);
-
-  const handleRemoveElement = useCallback((index: number) => {
-    removeElement(elements, setElements, index);
-  }, [elements, setElements]);
-
   return (
     <div className="grid h-5/6 grid-cols-3 gap-2 overflow-y-auto">
       {elements.map((element, index) => (
@@ -25,8 +16,8 @@ const RenderSelectedFilters = ({
           key={element.id}
           element={element}
           isActive={index === activeList}
-          onSetActiveList={() => handleSetActiveList(index)}
-          onRemoveElement={() => handleRemoveElement(index)}
+          onSetActiveList={() => setActiveList(index)}
+          onRemoveElement={() => removeElement(elements, setElements, index)}
         />
       ))}
     </div>
