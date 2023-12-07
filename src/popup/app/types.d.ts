@@ -1,4 +1,10 @@
-export type Telements = any[];
+export interface Ielement {
+  id: number;
+  content: string;
+  additionalData: string;
+}
+
+export type Telements = Ielement[];
 export type TactiveList = number;
 
 export type TsetElements = React.Dispatch<React.SetStateAction<Telements>>;
@@ -14,14 +20,14 @@ export interface ISelectedFilters {
 export interface IFilterItem {
   index: number;
   activeList: number;
-  element: any;
+  element: Ielement;
   setActiveList: (value: React.SetStateAction<number>) => void;
   elements: Telements;
   setElements: TsetElements;
 }
 
 export interface IFilterItemControls {
-  element: any;
+  element: Ielement;
   elements: Telements;
   setElements: TsetElements;
   index: number;

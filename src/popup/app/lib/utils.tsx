@@ -17,22 +17,23 @@ export const removeElement = (
   setElements(elements.filter((_, i) => i !== index));
 };
 
+const renderElements = (
+  elements: Telements,
+  activeList: number,
+  rarity: string,
+) =>
+  elements.map((element, i) =>
+    i === activeList
+      ? {
+          ...element,
+          additionalData: `${element.additionalData} ${rarity}`,
+        }
+      : element,
+  );
+
 export const updateElement = (
   e: any,
   elements: Telements,
   setElements: TsetElements,
   activeList: number,
-) => {
-  const rarity = e.target.value;
-  setElements(
-    elements.map((element, i) => {
-      if (i === activeList) {
-        return {
-          ...element,
-          additionalData: `${element.additionalData} ${rarity}`,
-        };
-      }
-      return element;
-    }),
-  );
-};
+) => setElements(renderElements(elements, activeList, e.target.value));
