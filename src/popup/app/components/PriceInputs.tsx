@@ -19,25 +19,51 @@ const setInputTitle = (index: number) => {
       return "";
   }
 };
+
+export type TsetPrices = (
+  updateFunc: (prevState: number[]) => number[],
+) => void;
+
+interface IPriceInputProps {
+  index: number;
+  price: number;
+  setPrices: TsetPrices;
+}
+
+export const handleChange =
+  (setPrices: TsetPrices, index: number) =>
+  (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPrices((prevState) => {
+      const updatedPrices = [...prevState];
+      updatedPrices[index] = parseInt(e.target.value);
+      return updatedPrices;
+    });
+  };
+
+const PriceInput = ({ index, price, setPrices }: IPriceInputProps) => {
+  return (
+    <>
+      <h4 className="indent-1 font-semibold">{setInputTitle(index)}</h4>
+      <input
+        className="w-full indent-2 outline-none"
+        type="tel"
+        value={price || ""}
+        onChange={handleChange(setPrices, index)}
+      />
+    </>
+  );
+};
+
 const PriceInputs = ({ prices, setPrices }: IPriceInputs) => {
   return (
     <>
-      {[0, 1, 2, 3].map((index) => (
-        <React.Fragment key={index}>
-          <h4 className="indent-1 font-semibold">{setInputTitle(index)}</h4>
-          <input
-            className="w-full indent-2 outline-none"
-            type="tel"
-            value={prices[index] || ""}
-            onChange={(e) => {
-              setPrices((prevState) => {
-                const updatedPrices = [...prevState];
-                updatedPrices[index] = parseInt(e.target.value);
-                return updatedPrices;
-              });
-            }}
-          />
-        </React.Fragment>
+      {prices.map((price, index) => (
+        <PriceInput
+          key={index}
+          index={index}
+          price={price}
+          setPrices={setPrices}
+        />
       ))}
     </>
   );
