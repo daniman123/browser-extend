@@ -1,12 +1,8 @@
 import useFilterControls from "../../lib/hooks/useFilterControls";
+import { IFilterControls } from "../../types";
 import FilterButton from "./FilterButton";
 
-export interface IFilterControls {
-  elements: any;
-  setElements: any;
-}
-
-const FilterControls = ({ elements, setElements }: IFilterControls) => {
+const FilterControls = ({ elements, setElements, }: IFilterControls) => {
   const { addFilter, clearAllFilters } = useFilterControls(
     elements,
     setElements,

@@ -39,10 +39,9 @@ export interface IFilterButton {
   text: string;
 }
 
-export interface IFilterControls {
-  addFilter: () => void;
-  clearAllFilters: () => void;
-  disabled: boolean;
+export interface IFiltersPanel {
+  defaultOptionLabel: string;
+  children: React.ReactNode;
 }
 
 export interface IRenderSelectedFilters {
@@ -59,4 +58,35 @@ export interface IRarityDropdown {
   defaultOptionLabel: string;
   updateElement: (e: any) => void;
   isDisabled: boolean;
+}
+
+export type Tprices = number[];
+
+export interface IPriceInputs {
+  prices: Tprices;
+  setPrices: React.Dispatch<React.SetStateAction<Tprices>>;
+}
+
+export type TsetPrices = (
+  updateFunc: (prevState: number[]) => number[],
+) => void;
+
+interface IPriceInputProps {
+  index: number;
+  price: number;
+  setPrices: TsetPrices;
+}
+
+export interface IToggleBot {
+  setToggleBot: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface IRuntimeControls {
+  rarity: string;
+  prices: number[];
+}
+
+export interface IFilterControls {
+  elements: any;
+  setElements: any;
 }

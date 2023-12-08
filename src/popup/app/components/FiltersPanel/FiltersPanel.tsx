@@ -1,9 +1,4 @@
-import React from "react";
-
-export interface IFiltersPanel {
-  defaultOptionLabel: string;
-  children: React.ReactNode;
-}
+import { IFiltersPanel } from "../../types";
 
 const FiltersPanel = ({ defaultOptionLabel, children }: IFiltersPanel) => {
   return (

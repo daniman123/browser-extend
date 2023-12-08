@@ -1,8 +1,7 @@
 import React from "react";
+import { IToggleBot } from "../types";
 
-export interface IToggleBot {
-  setToggleBot: React.Dispatch<React.SetStateAction<boolean>>;
-}
+
 
 const ToggleBot = ({ setToggleBot }: IToggleBot) => {
   return (

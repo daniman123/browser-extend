@@ -2,7 +2,7 @@ import { test } from "./__tests__";
 import { snipingBot } from "../snipingBot/index";
 
 chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
-  if (request.test) {
+  if (request.bot === "test") {
     console.log("first test export");
     console.log(request.rarity);
     console.log(request.prices);

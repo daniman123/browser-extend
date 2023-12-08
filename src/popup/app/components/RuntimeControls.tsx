@@ -1,37 +1,23 @@
 import { injectContentScript } from "../../handlers";
 import { main } from "../../utils";
+import { IRuntimeControls } from "../types";
 
-export interface IRuntimeControls {
-  rarity: string;
-  prices: number[];
-}
+
+
+export const runMain =
+  (botEvent: string, rarity: string, prices: number[]) => () =>
+    main({
+      bot: botEvent,
+      rarity,
+      prices,
+    });
 
 const RuntimeControls = ({ rarity, prices }: IRuntimeControls) => {
   return (
     <>
       <button onClick={injectContentScript}>INject!</button>
-      <button
-        onClick={() =>
-          main({
-            test: true,
-            rarity: rarity,
-            prices: prices,
-          })
-        }
-      >
-        TEST!
-      </button>
-      <button
-        onClick={() =>
-          main({
-            bot: "startBot",
-            rarity: rarity,
-            prices: prices,
-          })
-        }
-      >
-        Run Bot!
-      </button>
+      <button onClick={runMain("test", rarity, prices)}>TEST!</button>
+      <button onClick={runMain("startBot", rarity, prices)}>Run Bot!</button>
     </>
   );
 };

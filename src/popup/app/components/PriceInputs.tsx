@@ -1,34 +1,10 @@
 import React from "react";
+import { IPriceInputProps, IPriceInputs, TsetPrices } from "../types";
 
-export type Tprices = number[];
-export interface IPriceInputs {
-  prices: Tprices;
-  setPrices: React.Dispatch<React.SetStateAction<Tprices>>;
-}
 const setInputTitle = (index: number) => {
-  switch (index) {
-    case 0:
-      return "Min Bid";
-    case 1:
-      return "Max Bid";
-    case 2:
-      return "Min Bin";
-    case 3:
-      return "Max Bin";
-    default:
-      return "";
-  }
+  const inputTitles = ["Min Bid", "Max Bid", "Min Bin", "Max Bin"];
+  return inputTitles[index] || "";
 };
-
-export type TsetPrices = (
-  updateFunc: (prevState: number[]) => number[],
-) => void;
-
-interface IPriceInputProps {
-  index: number;
-  price: number;
-  setPrices: TsetPrices;
-}
 
 export const handleChange =
   (setPrices: TsetPrices, index: number) =>
