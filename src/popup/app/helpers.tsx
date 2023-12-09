@@ -1,4 +1,4 @@
-import ToggleBotSection from "./components/ToggleBotSection";
+import ToggleBotSection from "./components/ToggleBot/ToggleBotSection";
 import MainContent from "./containers/MainContent/MainContent";
 
 export const renderContent = (

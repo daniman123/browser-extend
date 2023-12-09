@@ -1,16 +1,6 @@
-import { injectContentScript } from "../../handlers";
-import { main } from "../../utils";
-import { IRuntimeControls } from "../types";
-
-
-
-export const runMain =
-  (botEvent: string, rarity: string, prices: number[]) => () =>
-    main({
-      bot: botEvent,
-      rarity,
-      prices,
-    });
+import { injectContentScript } from "../../../handlers";
+import { IRuntimeControls } from "../../types";
+import { runMain } from "./utils";
 
 const RuntimeControls = ({ rarity, prices }: IRuntimeControls) => {
   return (

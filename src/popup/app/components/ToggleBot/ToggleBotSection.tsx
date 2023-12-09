@@ -1,4 +1,4 @@
-import { IToggleBotSection } from "../types";
+import { IToggleBotSection } from "../../types";
 import ToggleBot from "./ToggleBot";
 
 const TOGGLE_BOT_STYLE = `grid h-full w-full grid-flow-row auto-rows-auto bg-gradient-to-b from-[#5D9FFF] to-[#6BBBFF]`;

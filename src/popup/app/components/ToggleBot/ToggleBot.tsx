@@ -1,7 +1,4 @@
-import React from "react";
-import { IToggleBot } from "../types";
-
-
+import { IToggleBot } from "../../types";
 
 const ToggleBot = ({ setToggleBot }: IToggleBot) => {
   return (

@@ -1,34 +1,5 @@
-import { removeElement } from "../../lib/utils";
-import { IFilterItem, IFilterItemControls } from "../../types";
-
-export const FilterItemControls = ({
-  elements,
-  setElements,
-  index,
-}: IFilterItemControls) => {
-  return (
-    <>
-      <p>Filter {index + 1}</p>
-      <button
-        className="text-red-700"
-        onClick={() => removeElement(elements, setElements, index)}
-      >
-        X
-      </button>
-    </>
-  );
-};
-
-const Item = (props: IFilterItemControls) => {
-  return (
-    <>
-      <div className="flex">
-        <FilterItemControls {...props} />
-      </div>
-      {props.element.additionalData}
-    </>
-  );
-};
+import { IFilterItem } from "../../types";
+import { FilterItemContent } from "./FilterItemContent";
 
 const FilterItem = ({
   index,
@@ -44,7 +15,7 @@ const FilterItem = ({
     }`}
     onClick={() => setActiveList(index)}
   >
-    <Item
+    <FilterItemContent
       element={element}
       elements={elements}
       setElements={setElements}
