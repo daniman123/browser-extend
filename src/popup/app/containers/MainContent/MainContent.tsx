@@ -4,7 +4,7 @@ import PriceInputs from "../../components/PriceInputs/PriceInputs";
 import SelectedFilters from "../../components/SelectedFilters/SelectedFilters";
 import useElementState from "../../lib/hooks/useElementState";
 import { Tprices } from "../../types";
-import { SectionWrapper, renderSection } from "./helpers";
+import { renderSection, renderSections } from "./helpers";
 
 const MainContent = () => {
   const {
@@ -17,21 +17,25 @@ const MainContent = () => {
 
   const [prices, setPrices] = useState<Tprices>([0, 0, 0, 0]);
 
+  const rarityDropdown = {
+    Component: RarityDropdown,
+    props: {
+      defaultOptionLabel: "Rarity",
+      updateElement: handleUpdateElement,
+      isDisabled: !elements.length,
+    },
+  };
+
+  const priceInputs = {
+    Component: PriceInputs,
+    props: { prices: prices, setPrices: setPrices },
+  };
+
+  const settingsSection = [rarityDropdown, priceInputs];
+
   return (
     <section className="grid h-full w-full grid-rows-2 gap-2 bg-slate-500 p-2">
-      <SectionWrapper>
-        {/* {renderSection(RarityDropdown, {
-          defaultOptionLabel: "Rarity",
-          updateElement: handleUpdateElement,
-          isDisabled: !elements.length,
-        })} */}
-        <RarityDropdown
-          defaultOptionLabel="Rarity"
-          updateElement={handleUpdateElement}
-          isDisabled={!elements.length}
-        />
-        <PriceInputs prices={prices} setPrices={setPrices} />
-      </SectionWrapper>
+      {renderSections(settingsSection)}
 
       {renderSection(SelectedFilters, {
         activeList,

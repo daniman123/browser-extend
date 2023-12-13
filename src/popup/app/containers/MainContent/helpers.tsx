@@ -16,3 +16,13 @@ export const renderSection = <P extends {}>(
     <Component {...props} />
   </SectionWrapper>
 );
+
+export const renderSections = (
+  array: { Component: React.ComponentType<any>; props: any }[],
+) => (
+  <SectionWrapper>
+    {array.map((value) => (
+      <value.Component {...value.props} />
+    ))}
+  </SectionWrapper>
+);
