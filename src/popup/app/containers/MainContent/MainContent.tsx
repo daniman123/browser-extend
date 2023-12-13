@@ -4,7 +4,7 @@ import PriceInputs from "../../components/PriceInputs/PriceInputs";
 import SelectedFilters from "../../components/SelectedFilters/SelectedFilters";
 import useElementState from "../../lib/hooks/useElementState";
 import { Tprices } from "../../types";
-import { renderSection, renderSections } from "./helpers";
+import { renderSections } from "./helpers";
 
 const MainContent = () => {
   const {
@@ -33,16 +33,21 @@ const MainContent = () => {
 
   const settingsSection = [rarityDropdown, priceInputs];
 
+  const selectedFilters = {
+    Component: SelectedFilters,
+    props: {
+      activeList,
+      elements,
+      setActiveList,
+      setElements,
+    },
+  };
+  const displayFiltersSection = [selectedFilters];
+
   return (
     <section className="grid h-full w-full grid-rows-2 gap-2 bg-slate-500 p-2">
       {renderSections(settingsSection)}
-
-      {renderSection(SelectedFilters, {
-        activeList,
-        elements,
-        setActiveList,
-        setElements,
-      })}
+      {renderSections(displayFiltersSection)}
     </section>
   );
 };
