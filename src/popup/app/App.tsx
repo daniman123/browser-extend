@@ -2,7 +2,7 @@ import { useState } from "react";
 import { renderContent } from "./helpers";
 
 const App = () => {
-  const [toggleBot, setToggleBot] = useState(false);
+  const [toggleBot, setToggleBot] = useState(true);
 
   return (
     <main className="h-[700px] w-[700px]">
