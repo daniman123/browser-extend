@@ -13,17 +13,15 @@ const MainContent = () => {
     setActiveList,
     setElements,
     handleUpdateElement,
+    handlePriceElement,
   } = useElementState();
 
   const [prices, setPrices] = useState<Tprices>([0, 0, 0, 0]);
 
   useEffect(() => {
-    console.log(
-      "🚀 ~ file: MainContent.tsx:24 ~ MainContent ~ prices:",
-      prices,
-    );
-    const p = prices.toString() as any;
-    handleUpdateElement(p);
+    
+
+    handlePriceElement(prices);
   }, [prices]);
 
   const rarityDropdown = {

@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { updateElement } from "../utils";
+import { applyFilter, applyPriceFilter } from "../utils";
 
 const useElementState = () => {
   const [activeList, setActiveList] = useState<number>(0);
@@ -7,7 +7,16 @@ const useElementState = () => {
 
   const handleUpdateElement = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
-      updateElement(e, elements, setElements, activeList);
+      console.log(e.target.value);
+      
+      setElements(applyFilter(elements, activeList, e.target.value));
+    },
+    [elements, activeList, setElements],
+  );
+
+  const handlePriceElement = useCallback(
+    (prices: number[]) => {
+      setElements(applyPriceFilter(elements, activeList, prices));
     },
     [elements, activeList, setElements],
   );
@@ -18,6 +27,7 @@ const useElementState = () => {
     setActiveList,
     setElements,
     handleUpdateElement,
+    handlePriceElement,
   };
 };
 

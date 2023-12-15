@@ -1,7 +1,8 @@
 export interface Ielement {
   id: number;
-  content: string;
-  additionalData: string;
+  filterLabel: string;
+  rarityFilters: string;
+  priceFilters: number[];
 }
 
 export type Telements = Ielement[];

@@ -7,7 +7,8 @@ export const FilterItemContent = (props: IFilterItemControls) => {
       <div className="flex">
         <FilterItemControls {...props} />
       </div>
-      {props.element.additionalData}
+      {props.element.rarityFilters}
+      {props.element.priceFilters.join(",")}
     </>
   );
 };

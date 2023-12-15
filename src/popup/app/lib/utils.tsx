@@ -1,10 +1,11 @@
-import { TactiveList, Telements, TsetElements } from "../types";
+import { Ielement, TactiveList, Telements, TsetElements } from "../types";
 
 export const addElement = (elements: Telements, setElements: TsetElements) => {
-  const newElement = {
+  const newElement: Ielement = {
     id: elements.length,
-    content: `Filter ${elements.length + 1}`,
-    additionalData: "",
+    filterLabel: `Filter ${elements.length + 1}`,
+    rarityFilters: "",
+    priceFilters: [0, 0, 0, 0],
   };
   setElements([...elements, newElement]);
 };
@@ -17,12 +18,36 @@ export const removeElement = (
   setElements(elements.filter((_, i) => i !== index));
 };
 
-const applyFilter = (elements: Telements, activeList: number, rarity: string) =>
+export const updateRarityFilters = (element: Ielement, rarity: string) => {
+  return {
+    rarityFilters: `${element.rarityFilters} ${rarity}`,
+  };
+};
+
+export const applyFilter = (
+  elements: Telements,
+  activeList: number,
+  rarity: string,
+) =>
   elements.map((element, i) =>
     i === activeList
       ? {
           ...element,
-          additionalData: `${element.additionalData} ${rarity}`,
+          rarityFilters: `${element.rarityFilters} ${rarity}`,
+        }
+      : element,
+  );
+
+export const applyPriceFilter = (
+  elements: Telements,
+  activeList: number,
+  prices: number[],
+) =>
+  elements.map((element, i) =>
+    i === activeList
+      ? {
+          ...element,
+          priceFilters: prices,
         }
       : element,
   );
