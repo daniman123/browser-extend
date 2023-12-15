@@ -5,6 +5,7 @@ export const PriceInputField = ({
   index,
   price,
   setPrices,
+  updateElement,
 }: IPriceInputProps) => {
   return (
     <>

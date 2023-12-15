@@ -17,11 +17,7 @@ export const removeElement = (
   setElements(elements.filter((_, i) => i !== index));
 };
 
-const renderElements = (
-  elements: Telements,
-  activeList: number,
-  rarity: string,
-) =>
+const applyFilter = (elements: Telements, activeList: number, rarity: string) =>
   elements.map((element, i) =>
     i === activeList
       ? {
@@ -36,4 +32,4 @@ export const updateElement = (
   elements: Telements,
   setElements: TsetElements,
   activeList: number,
-) => setElements(renderElements(elements, activeList, e.target.value));
+) => setElements(applyFilter(elements, activeList, e));

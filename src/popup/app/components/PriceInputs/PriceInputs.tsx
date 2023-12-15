@@ -1,7 +1,7 @@
 import { IPriceInputs } from "../../types";
 import { PriceInputField } from "./PriceInputField";
 
-const PriceInputs = ({ prices, setPrices }: IPriceInputs) => {
+const PriceInputs = ({ prices, setPrices,updateElement }: IPriceInputs) => {
   return (
     <>
       {prices.map((price, index) => (
@@ -10,6 +10,7 @@ const PriceInputs = ({ prices, setPrices }: IPriceInputs) => {
           index={index}
           price={price}
           setPrices={setPrices}
+          updateElement={updateElement}
         />
       ))}
     </>

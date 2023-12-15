@@ -65,6 +65,7 @@ export type Tprices = number[];
 export interface IPriceInputs {
   prices: Tprices;
   setPrices: React.Dispatch<React.SetStateAction<Tprices>>;
+  updateElement: (e: any) => void;
 }
 
 export type TsetPrices = (
@@ -75,6 +76,7 @@ interface IPriceInputProps {
   index: number;
   price: number;
   setPrices: TsetPrices;
+  updateElement: (e: any) => void;
 }
 
 export interface IToggleBot {

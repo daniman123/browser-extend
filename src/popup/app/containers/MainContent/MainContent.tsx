@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RarityDropdown from "../../components/FiltersPanel/RarityDropdown";
 import PriceInputs from "../../components/PriceInputs/PriceInputs";
 import SelectedFilters from "../../components/SelectedFilters/SelectedFilters";
@@ -17,6 +17,15 @@ const MainContent = () => {
 
   const [prices, setPrices] = useState<Tprices>([0, 0, 0, 0]);
 
+  useEffect(() => {
+    console.log(
+      "🚀 ~ file: MainContent.tsx:24 ~ MainContent ~ prices:",
+      prices,
+    );
+    const p = prices.toString() as any;
+    handleUpdateElement(p);
+  }, [prices]);
+
   const rarityDropdown = {
     Component: RarityDropdown,
     props: {
@@ -28,7 +37,11 @@ const MainContent = () => {
 
   const priceInputs = {
     Component: PriceInputs,
-    props: { prices: prices, setPrices: setPrices },
+    props: {
+      prices: prices,
+      setPrices: setPrices,
+      updateElement: handleUpdateElement,
+    },
   };
 
   const settingsSection = [rarityDropdown, priceInputs];
